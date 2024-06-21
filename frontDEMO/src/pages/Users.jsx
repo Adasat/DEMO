@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getUsers } from '../services/user.service'
 import UserCard from '../components/UserCard'
+import { UserContext } from '../context/userContext'
 
 function Users() {
     const [users, setUsers] = useState([])
+    const {user} = useContext(UserContext)
 
     useEffect(function(){
         async function getAllUsers(){
@@ -12,8 +14,9 @@ function Users() {
         }
         getAllUsers()
 
-        console.log(users)
     },[])
+
+    console.log(user)
 
 
 

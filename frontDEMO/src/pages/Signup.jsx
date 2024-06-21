@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { signup } from '../services/auth.service'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../context/userContext'
 
 function Signup() {
   const [fullname, setFullname] = useState('')
@@ -8,6 +9,10 @@ function Signup() {
   const [doublePass, setDoublePass] = useState('')
   const [email, setEmail] = useState('')
   const [errs, setErrs] = useState('') //Para mostrar si hay algún error
+
+  const {user} = useContext(UserContext)
+
+  console.log(user)
 
 
   const navigate = useNavigate()

@@ -10,10 +10,14 @@ import {Toaster} from 'react-hot-toast'
 
 import {RouterProvider} from 'react-router-dom'
 import {router} from './router/index.jsx'
+import ContextWrapper from './context/userContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Toaster position='top-right' reverseOrder={false} />
-    <RouterProvider router={router} />
+    <ContextWrapper>
+      <Toaster position='top-right' reverseOrder={false} />
+      <RouterProvider router={router} />
+
+    </ContextWrapper>
   </React.StrictMode>
 )
